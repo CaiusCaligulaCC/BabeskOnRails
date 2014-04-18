@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :kuwasys do
+    resources :courses
+  end
+
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :users
