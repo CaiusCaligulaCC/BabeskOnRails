@@ -38,3 +38,19 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use twitter-bootstrap stuff for web
+gem 'twitter-bootstrap-rails',
+    :github => 'seyhunak/twitter-bootstrap-rails',
+    :branch => 'bootstrap3'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+
+# Use toastr- a JQuery Popup Library
+gem 'toastr-rails'
+
+# Use ActiveAdmin for the admin-interface
+gem 'activeadmin', github: 'gregbell/active_admin'
+# Additional dependencies of ActiveAdmin
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem 'ransack',     github: 'activerecord-hackery/ransack'
+gem 'formtastic',  github: 'justinfrench/formtastic'
