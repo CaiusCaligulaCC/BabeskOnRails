@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418214013) do
+ActiveRecord::Schema.define(version: 20140418215251) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140418214013) do
     t.boolean  "registrationEnabled"
     t.integer  "categoryId"
     t.integer  "schoolyearId"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kuwasys_registrations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.integer  "status_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
