@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :kuwasys do
+    resources :registrations
+  end
+
+  namespace :kuwasys do
     resources :courses
   end
 

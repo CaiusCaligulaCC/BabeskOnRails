@@ -1,0 +1,2 @@
+module Kuwasys::RegistrationsHelper
+end
