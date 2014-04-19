@@ -33,9 +33,7 @@ ActiveAdmin.register User do
                   new_record: 'Add to course',
                   allow_destroy: true do |reg|
         reg.input :course_id, label: 'Course', as: :select,
-                      collection: Hash[Kuwasys::Course.all.map{
-                        |c| [c.label, c.id]
-                      }]
+                      collection: Kuwasys::Course.all
       end
     end
     f.actions
