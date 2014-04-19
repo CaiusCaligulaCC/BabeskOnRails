@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
             dependent: :destroy
   has_many :courses, through: :registrations, class_name: 'Kuwasys::Course'
 
+  accepts_nested_attributes_for :registrations, :allow_destroy => true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
