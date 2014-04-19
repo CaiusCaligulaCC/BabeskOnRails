@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  kuwasys:
+    registrations: Registrations
+    count_of_all_registrations: Count of all Registrations
+    count_of_all_users: Count of all Users
+    count_of_all_users_with_registrations: Count of all users with registrations

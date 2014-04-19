@@ -10,11 +10,7 @@ ActiveAdmin.register User do
     column :birthday
     column :sign_in_count
     column :courses do |user|
-      Kuwasys::Registration.all.each do |course|
-        div do
-          course.user_id
-        end
-      end
+      user.courses.all.map { |i| i.name }.join(', ')
     end
     actions
   end
