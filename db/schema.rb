@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419134434) do
+ActiveRecord::Schema.define(version: 20140419143131) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 20140419134434) do
     t.integer  "user_id"
     t.integer  "course_id"
     t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kuwasys_statuses", force: true do |t|
+    t.string   "name",       limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"
   end
