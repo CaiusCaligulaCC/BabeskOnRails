@@ -10,7 +10,17 @@ ActiveAdmin.register User do
     column :birthday
     column :sign_in_count
     column :courses do |user|
-      user.courses.all.map { |i| i.name }.join(', ')
+      user.registrations.all.map do |reg|
+        div do
+          if not reg.status.nil?
+            status_col = kuwasys_status_tag_color reg.status.name
+            span class: "status_tag #{status_col}" do
+                I18n.t("kuwasys.status.#{reg.status.name}")
+            end
+          end
+          span do reg.course.name end
+        end
+      end.join(', ')
     end
     actions
   end
