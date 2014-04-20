@@ -50,18 +50,22 @@ ActiveAdmin.register Kuwasys::Course do
     div do
       table do
         tbody do
-          course.registrations.all.each do |reg|
+          course.registrations.all.order(:status_id).each do |reg|
             user = reg.user
             tr do
               td do
-                a href: admin_user_path(user.id) do
-                  user.firstname + ' ' + user.lastname
-                end
                 if not reg.status.nil?
                   col = kuwasys_status_tag_color reg.status.name
-                  span class: "status_tag #{col}" do
-                    reg.status.name
+                  span class: "kuwasys_course_status #{col}" do
+                    I18n.t("kuwasys.status.#{reg.status.name}")
                   end
+                else
+                  span class: "kuwasys_course_status" do
+                    I18n.t("kuwasys.status.undefined")
+                  end
+                end
+                a href: admin_user_path(user.id) do
+                  user.firstname + ' ' + user.lastname
                 end
               end
             end

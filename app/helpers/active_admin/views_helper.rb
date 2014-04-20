@@ -4,6 +4,8 @@ module ActiveAdmin::ViewsHelper
       return 'green'
     elsif status_name == 'waiting'
       return 'orange'
+    else
+      return ''
     end
   end
 end

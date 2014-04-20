@@ -29,6 +29,7 @@ en:
     status:
       active: Active
       waiting: Waiting
+      undefined: Undefined
   activerecord:
     models:
       user:

@@ -14,8 +14,12 @@ ActiveAdmin.register User do
         div do
           if not reg.status.nil?
             status_col = kuwasys_status_tag_color reg.status.name
-            span class: "status_tag #{status_col}" do
+            span class: "kuwasys_course_status #{status_col}" do
                 I18n.t("kuwasys.status.#{reg.status.name}")
+            end
+          else
+            span class: "kuwasys_course_status" do
+                I18n.t("kuwasys.status.undefined")
             end
           end
           span do reg.course.name end
