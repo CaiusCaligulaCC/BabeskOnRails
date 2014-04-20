@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :firstname, :lastname, :email, :password, :password_confirmation, :birthday, registrations_attributes:[:user_id, :course_id, :_destroy, :id]
+  permit_params :firstname, :lastname, :email, :password, :password_confirmation, :birthday, registrations_attributes:[:user_id, :course_id, :status_id, :_destroy, :id]
 
   index do
     selectable_column
@@ -44,6 +44,8 @@ ActiveAdmin.register User do
                   allow_destroy: true do |reg|
         reg.input :course_id, label: 'Course', as: :select,
                       collection: Kuwasys::Course.all
+        reg.input :status_id, label: 'Status', as: :select,
+                      collection: Kuwasys::Status.all
       end
     end
     f.actions
