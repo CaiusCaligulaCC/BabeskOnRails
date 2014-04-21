@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :registrations, class_name: 'Kuwasys::Registration',
             dependent: :destroy
   has_many :courses, through: :registrations, class_name: 'Kuwasys::Course'
+  has_many :statuses, through: :registrations, class_name: 'Kuwasys:Status'
 
   accepts_nested_attributes_for :registrations, :allow_destroy => true
 
