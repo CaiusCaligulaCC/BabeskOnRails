@@ -38,3 +38,9 @@ en:
     attributes:
       user:
         email: 'Email Address'
+  activeadmin:
+    scope:
+      user:
+        all_users: 'All Users'
+        not_registered: 'Not registered'
+        only_registered: 'Only registered'

@@ -3,6 +3,8 @@ ActiveAdmin.register Kuwasys::Course do
   permit_params :name, :description, :max_registration, :registration_enabled,
                 :category_id, :schoolyear_id
 
+  filter :registrations, as: :select
+
   index do
     selectable_column
     column :name

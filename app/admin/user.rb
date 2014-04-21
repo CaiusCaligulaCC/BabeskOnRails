@@ -1,5 +1,14 @@
 ActiveAdmin.register User do
-  permit_params :firstname, :lastname, :email, :password, :password_confirmation, :birthday, registrations_attributes:[:user_id, :course_id, :status_id, :_destroy, :id]
+
+  permit_params :firstname, :lastname, :email, :password,
+    :password_confirmation, :birthday,
+    registrations_attributes: [
+      :user_id, :course_id, :status_id, :_destroy, :id
+    ]
+
+  scope I18n.t('activeadmin.scope.user.all_users'), :all_users
+  scope I18n.t('activeadmin.scope.user.not_registered'), :not_registered
+  scope I18n.t('activeadmin.scope.user.only_registered'), :only_registered
 
   index do
     selectable_column
