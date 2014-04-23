@@ -1,11 +1,14 @@
+require 'views/index_as_distinct_table.rb'
+
 ActiveAdmin.register Kuwasys::Course do
 
   permit_params :name, :description, :max_registration, :registration_enabled,
                 :category_id, :schoolyear_id
 
-  filter :registrations, as: :select
+  preserve_default_filters!
+  filter :statuses, as: :select
 
-  index do
+  index as: :distinct_table do
     selectable_column
     column :name
     column :description
@@ -76,18 +79,4 @@ ActiveAdmin.register Kuwasys::Course do
       end
     end
   end
-
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
-
 end

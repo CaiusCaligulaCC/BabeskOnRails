@@ -44,3 +44,9 @@ en:
         all_users: 'All Users'
         not_registered: 'Not registered'
         only_registered: 'Only registered'
+      kuwasys:
+        course:
+          with_status:
+            only_with: Only with %{status}
+            active: active
+            waiting: waiting

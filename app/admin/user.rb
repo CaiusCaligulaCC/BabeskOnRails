@@ -6,11 +6,25 @@ ActiveAdmin.register User do
       :user_id, :course_id, :status_id, :_destroy, :id
     ]
 
-  scope I18n.t('activeadmin.scope.user.all_users'), :all_users
+  remove_filter :statuses
+
+  scope I18n.t('activeadmin.scope.user.all_users'), :all_users, default: true
   scope I18n.t('activeadmin.scope.user.not_registered'), :not_registered
   scope I18n.t('activeadmin.scope.user.only_registered'), :only_registered
 
+  # action_item do
+  #   link_to "Dashboard", "/admin/user_dashboard", class: :button
+  # end
+
   index do
+
+    # panel 'options' do
+    # div do
+    #   'aschaskoldjsd'
+    #   link_to 'asdf', '/', class: :button
+    # end
+    # end
+
     selectable_column
     id_column
     column :firstname
@@ -61,6 +75,7 @@ ActiveAdmin.register User do
   end
 
   controller do
+    # Allow passwords to be blank and if so, dont update them
     def update
       if params[:user][:password].blank?
         params[:user].delete :password
