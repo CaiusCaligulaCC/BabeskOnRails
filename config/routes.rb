@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :kuwasys do
+    resources :categories
+  end
+
+  namespace :kuwasys do
     resources :statuses
   end
 

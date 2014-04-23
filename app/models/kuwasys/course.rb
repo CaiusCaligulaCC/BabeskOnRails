@@ -2,6 +2,7 @@ class Kuwasys::Course < ActiveRecord::Base
   has_many :registrations, dependent: :destroy
   has_many :users, -> { distinct }, through: :registrations, class_name: 'User'
   has_many :statuses, -> { distinct } , through: :registrations
+  has_one :category
 
   scope :has_registrations_with_status, -> (status_name) {
     joins(:registrations).joins(

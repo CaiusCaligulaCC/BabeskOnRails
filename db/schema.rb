@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419143131) do
+ActiveRecord::Schema.define(version: 20140423185412) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -28,13 +28,19 @@ ActiveRecord::Schema.define(version: 20140419143131) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
+  create_table "kuwasys_categories", force: true do |t|
+    t.string   "name",       limit: 128
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "kuwasys_courses", force: true do |t|
     t.string   "name",                             null: false
     t.string   "description",         limit: 1024
     t.integer  "maxRegistration",     limit: 5
     t.boolean  "registrationEnabled"
-    t.integer  "categoryId"
-    t.integer  "schoolyearId"
+    t.integer  "category_id"
+    t.integer  "schoolyear_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
