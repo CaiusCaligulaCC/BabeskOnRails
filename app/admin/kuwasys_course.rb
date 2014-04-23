@@ -16,7 +16,9 @@ ActiveAdmin.register Kuwasys::Course do
     column :description
     column :max_registration
     column :registration_enabled
-    column :category_id
+    column :category do |course|
+      course.category.name unless course.category.nil?
+    end
     column :schoolyear_id
     column :user_count do |course|
       course.registrations.count
