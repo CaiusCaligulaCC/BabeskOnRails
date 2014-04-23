@@ -2,6 +2,8 @@ require 'views/index_as_distinct_table.rb'
 
 ActiveAdmin.register Kuwasys::Course do
 
+  menu parent: 'Kuwasys'
+
   permit_params :name, :description, :max_registration, :registration_enabled,
                 :category_id, :schoolyear_id
 
